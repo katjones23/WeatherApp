@@ -29,12 +29,15 @@
                         <label for="searchCity">Search for a City:</label>
                         <br>
                         <input type="text" id="searchCity" placeholder="Search">
-                        <button class="searchBtn"><i class="fas fa-search"></i></button>
+                        <button id="searchBtn" class="myBtn"><i class="fas fa-search"></i></button>
+                        <br>
+                        <div class="searchHistory"></div>
+                        <div class="float-right">
+                            <button id="clear" class="btn btn-primary myBtn">Clear</button>
+                        </div>
                     </nav>
                 </div>
-                <div class="row">
-                    <div class="searchHistory"></div>
-                </div>
+
             </div>
             <div class="col-md-9">
                 <div class="card weatherCard">

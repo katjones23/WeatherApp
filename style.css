@@ -16,13 +16,22 @@ label {
     font-weight: bold;
 }
 
-.searchBtn {
+#searchBtn {
     background-color: blue;
     color: white;
     border: 0;
 }
 
+.myBtn {
+    margin: 5px;
+}
+
 .weatherCard {
     margin-top: 25px;
     display: none;
+}
+
+.card {
+    box-sizing: content-box;
+    padding: 5px;
 }
