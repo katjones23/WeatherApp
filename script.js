@@ -19,23 +19,64 @@ $(document).ready(function () {
     $("button").on("click", function () {
 
         var inputCity = $("#searchCity").val();
-        console.log(inputCity);
         var APIKey = "&appid=fc3e557a89901d475f37aaf29507552a";
-        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + inputCity + APIKey;
-        console.log(queryURL);
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + inputCity + "&units=imperial" + APIKey;
+        var currentDate = moment().format('dddd MMM Do YYYY')
 
         $.ajax({
             url: queryURL,
             method: "GET"
         })
-            .then(function (response) {
-                $(".cityWeather").html("<h3>" + response.name + "</h3>")
-                // var dateUTC = response.dt
-                // var localDate = moment.utc(dateUTC).local().format();
-                console.log(localDate);
+            .then(function(response) {
+                $(".weatherCard").css("display", "block");
+
+                var iconURl = "http://openweathermap.org/img/wn/" + response.weather[0].icon + ".png";
+
+                $(".cityWeather").html("<h3>" + response.name + ", " + currentDate + "<img src='" + iconURl + "'>" + "</h3>");
+
+                var temperature = response.main.temp;
+                var humidity = response.main.humidity;
+                var windSpeed = response.wind.speed;
+                
+                $(".cityWeather").append("<p>Temperature: " + temperature + " °F</p>");
+                $(".cityWeather").append("<p>Humidity: " + humidity + "%</p>");
+                $(".cityWeather").append("<p>Wind Speed: " + windSpeed + " MPH</p>");
+
+                var UVqueryURL = "http://api.openweathermap.org/data/2.5/uvi?" + APIKey + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon
+
+                $.ajax({
+                    url: UVqueryURL,
+                    method: "GET"
+                })
+                    .then(function(response) {
+                        var UVIndex = response.value;
+                        var UVIndexHTML = $("<p>").html("UV Index: ")
+                        var UVBadge = $("<span>").addClass("badge").text(UVIndex)
+
+                        if (UVIndex < 3) {
+                            $(UVBadge).css({"background-color": "green", "color": "white"})
+                        } else if (UVIndex < 6 && UVIndex >= 3) {
+                            $(UVBadge).css({"background-color": "yellow", "color": "white"})
+                        } else if (UVIndex < 8 && UVIndex >= 6) {
+                            $(UVBadge).css({"background-color": "orange", "color": "white"})
+                        } else if (UVIndex < 11 && UVIndex >= 8) {
+                            $(UVBadge).css({"background-color": "red", "color": "white"})
+                        } else if (UVIndex >= 11) {
+                            $(UVBadge).css({"background-color": "violet", "color": "white"})
+                        }
+
+                        $(".cityWeather").append(UVIndexHTML);
+                        $(UVIndexHTML).append(UVBadge);
+                        console.log(response);
+                    })
+                    .catch(function(error) {
+                        alert("uv error")
+                    });
+
+
                 console.log(response);
             })
-            .catch(function (error) {
+            .catch(function(error) {
                 alert("error");
             });
     });
