@@ -21,3 +21,7 @@ label {
     color: white;
     border: 0;
 }
+
+.cityWeather {
+    margin: 25px;
+}
