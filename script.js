@@ -45,7 +45,7 @@ $(document).ready(function () {
                 $(".cityWeather").append("<p>Humidity: " + humidity + "%</p>");
                 $(".cityWeather").append("<p>Wind Speed: " + windSpeed + " MPH</p>");
 
-                var UVqueryURL = "http://api.openweathermap.org/data/2.5/uvi?" + APIKey + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon
+                var UVqueryURL = "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/uvi?" + APIKey + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon
 
                 $.ajax({
                     url: UVqueryURL,
@@ -331,7 +331,7 @@ $(document).ready(function () {
                 $(".cityWeather").append("<p>Humidity: " + humidity + "%</p>");
                 $(".cityWeather").append("<p>Wind Speed: " + windSpeed + " MPH</p>");
 
-                var UVqueryURL = "http://api.openweathermap.org/data/2.5/uvi?" + APIKey + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon
+                var UVqueryURL = "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/uvi?" + APIKey + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon
 
                 $.ajax({
                     url: UVqueryURL,
@@ -585,7 +585,7 @@ $(document).ready(function () {
                 $(".cityWeather").append("<p>Humidity: " + humidity + "%</p>");
                 $(".cityWeather").append("<p>Wind Speed: " + windSpeed + " MPH</p>");
 
-                var UVqueryURL = "http://api.openweathermap.org/data/2.5/uvi?" + APIKey + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon
+                var UVqueryURL = "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/uvi?" + APIKey + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon
 
                 $.ajax({
                     url: UVqueryURL,
