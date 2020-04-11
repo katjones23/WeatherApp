@@ -13,5 +13,3 @@ A dynamic weather app that allows users to search cities, see search history, qu
 [Font Awesome](https://fontawesome.com/) for search icon
 
 [mu is too short(Stack Overflow)](https://stackoverflow.com/questions/5667888/counting-the-occurrences-frequency-of-array-elements/5668116#5668116) for code reference 
-
-[Rob--W](https://github.com/Rob--W/cors-anywhere/) for CORS anywhere URL

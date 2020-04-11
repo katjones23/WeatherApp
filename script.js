@@ -33,7 +33,7 @@ $(document).ready(function () {
             .then(function (response) {
                 $(".weatherCard").css("display", "block");
 
-                var iconURl = "http://openweathermap.org/img/wn/" + response.weather[0].icon + ".png";
+                var iconURl = "https://openweathermap.org/img/wn/" + response.weather[0].icon + ".png";
 
                 $(".cityWeather").html("<h3>" + response.name + ", " + currentDate + "<img src='" + iconURl + "'>" + "</h3>");
 
@@ -229,11 +229,11 @@ $(document).ready(function () {
                 var dayFourIcon = getIcon(dayFourIA);
                 var dayFiveIcon = getIcon(dayFiveIA);
 
-                var dayOneIconURl = "http://openweathermap.org/img/wn/" + dayOneIcon + ".png";
-                var dayTwoIconURl = "http://openweathermap.org/img/wn/" + dayTwoIcon + ".png";
-                var dayThreeIconURl = "http://openweathermap.org/img/wn/" + dayThreeIcon + ".png";
-                var dayFourIconURl = "http://openweathermap.org/img/wn/" + dayFourIcon + ".png";
-                var dayFiveIconURl = "http://openweathermap.org/img/wn/" + dayFiveIcon + ".png";
+                var dayOneIconURl = "https://openweathermap.org/img/wn/" + dayOneIcon + ".png";
+                var dayTwoIconURl = "https://openweathermap.org/img/wn/" + dayTwoIcon + ".png";
+                var dayThreeIconURl = "https://openweathermap.org/img/wn/" + dayThreeIcon + ".png";
+                var dayFourIconURl = "https://openweathermap.org/img/wn/" + dayFourIcon + ".png";
+                var dayFiveIconURl = "https://openweathermap.org/img/wn/" + dayFiveIcon + ".png";
 
                 // Add to page
                 $(".fiveDay").css("display", "block");
@@ -319,7 +319,7 @@ $(document).ready(function () {
             .then(function (response) {
                 $(".weatherCard").css("display", "block");
 
-                var iconURl = "http://openweathermap.org/img/wn/" + response.weather[0].icon + ".png";
+                var iconURl = "https://openweathermap.org/img/wn/" + response.weather[0].icon + ".png";
 
                 $(".cityWeather").html("<h3>" + response.name + ", " + currentDate + "<img src='" + iconURl + "'>" + "</h3>");
 
@@ -515,11 +515,11 @@ $(document).ready(function () {
                 var dayFourIcon = getIcon(dayFourIA);
                 var dayFiveIcon = getIcon(dayFiveIA);
 
-                var dayOneIconURl = "http://openweathermap.org/img/wn/" + dayOneIcon + ".png";
-                var dayTwoIconURl = "http://openweathermap.org/img/wn/" + dayTwoIcon + ".png";
-                var dayThreeIconURl = "http://openweathermap.org/img/wn/" + dayThreeIcon + ".png";
-                var dayFourIconURl = "http://openweathermap.org/img/wn/" + dayFourIcon + ".png";
-                var dayFiveIconURl = "http://openweathermap.org/img/wn/" + dayFiveIcon + ".png";
+                var dayOneIconURl = "https://openweathermap.org/img/wn/" + dayOneIcon + ".png";
+                var dayTwoIconURl = "https://openweathermap.org/img/wn/" + dayTwoIcon + ".png";
+                var dayThreeIconURl = "https://openweathermap.org/img/wn/" + dayThreeIcon + ".png";
+                var dayFourIconURl = "https://openweathermap.org/img/wn/" + dayFourIcon + ".png";
+                var dayFiveIconURl = "https://openweathermap.org/img/wn/" + dayFiveIcon + ".png";
 
                 // Add to page
                 $(".fiveDay").css("display", "block");
@@ -573,7 +573,7 @@ $(document).ready(function () {
             .then(function (response) {
                 $(".weatherCard").css("display", "block");
 
-                var iconURl = "http://openweathermap.org/img/wn/" + response.weather[0].icon + ".png";
+                var iconURl = "https://openweathermap.org/img/wn/" + response.weather[0].icon + ".png";
 
                 $(".cityWeather").html("<h3>" + response.name + ", " + currentDate + "<img src='" + iconURl + "'>" + "</h3>");
 
@@ -769,11 +769,11 @@ $(document).ready(function () {
                 var dayFourIcon = getIcon(dayFourIA);
                 var dayFiveIcon = getIcon(dayFiveIA);
 
-                var dayOneIconURl = "http://openweathermap.org/img/wn/" + dayOneIcon + ".png";
-                var dayTwoIconURl = "http://openweathermap.org/img/wn/" + dayTwoIcon + ".png";
-                var dayThreeIconURl = "http://openweathermap.org/img/wn/" + dayThreeIcon + ".png";
-                var dayFourIconURl = "http://openweathermap.org/img/wn/" + dayFourIcon + ".png";
-                var dayFiveIconURl = "http://openweathermap.org/img/wn/" + dayFiveIcon + ".png";
+                var dayOneIconURl = "https://openweathermap.org/img/wn/" + dayOneIcon + ".png";
+                var dayTwoIconURl = "https://openweathermap.org/img/wn/" + dayTwoIcon + ".png";
+                var dayThreeIconURl = "https://openweathermap.org/img/wn/" + dayThreeIcon + ".png";
+                var dayFourIconURl = "https://openweathermap.org/img/wn/" + dayFourIcon + ".png";
+                var dayFiveIconURl = "https://openweathermap.org/img/wn/" + dayFiveIcon + ".png";
 
                 // Add to page
                 $(".fiveDay").css("display", "block");
