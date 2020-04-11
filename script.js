@@ -291,7 +291,110 @@ $(document).ready(function () {
     $("form").on("submit", function(event) {
         event.preventDefault();
         event.stopImmediatePropagation();
+        
         var inputCity = $("#searchCity").val();
+
+        if (inputCity.search(/(?<=,)(.*al)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Alabama")
+        } else if (inputCity.search(/(?<=,)(.*ak)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Alaska")
+        } else if (inputCity.search(/(?<=,)(.*az)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Arizona")
+        } else if (inputCity.search(/(?<=,)(.*ar)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Arkansas")
+        } else if (inputCity.search(/(?<=,)(.*ca)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"California")
+        } else if (inputCity.search(/(?<=,)(.*co)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Colorado")
+        } else if (inputCity.search(/(?<=,)(.*ct)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Connecticut")
+        } else if (inputCity.search(/(?<=,)(.*de)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Delaware")
+        } else if (inputCity.search(/(?<=,)(.*fl)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/, "Florida")
+        } else if (inputCity.search(/(?<=,)(.*ga)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Georgia")
+        } else if (inputCity.search(/(?<=,)(.*hi)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Hawaii")
+        } else if (inputCity.search(/(?<=,)(.*id)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Idaho")
+        } else if (inputCity.search(/(?<=,)(.*il)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Illinois")
+        } else if (inputCity.search(/(?<=,)(.*in)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Indiana")
+        } else if (inputCity.search(/(?<=,)(.*ia)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Iowa")
+        } else if (inputCity.search(/(?<=,)(.*ks)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Kansas")
+        } else if (inputCity.search(/(?<=,)(.*ky)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Kentucky")
+        } else if (inputCity.search(/(?<=,)(.*la)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Louisiana")
+        } else if (inputCity.search(/(?<=,)(.*me)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Maine")
+        } else if (inputCity.search(/(?<=,)(.*md)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Maryland")
+        } else if (inputCity.search(/(?<=,)(.*ma)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Massachusetts")
+        } else if (inputCity.search(/(?<=,)(.*mi)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Michigan")
+        } else if (inputCity.search(/(?<=,)(.*mn)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Minnesota")
+        } else if (inputCity.search(/(?<=,)(.*ms)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Mississippi")
+        } else if (inputCity.search(/(?<=,)(.*mo)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Missouri")
+        } else if (inputCity.search(/(?<=,)(.*mt)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Montana")
+        } else if (inputCity.search(/(?<=,)(.*ne)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Nebraska")
+        } else if (inputCity.search(/(?<=,)(.*nv)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Nevada")
+        } else if (inputCity.search(/(?<=,)(.*nh)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"New Hampshire")
+        } else if (inputCity.search(/(?<=,)(.*nj)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"New Jersey")
+        } else if (inputCity.search(/(?<=,)(.*nm)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"New Mexico")
+        } else if (inputCity.search(/(?<=,)(.*ny)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/, "New York")
+        } else if (inputCity.search(/(?<=,)(.*nc)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"North Carolina")
+        } else if (inputCity.search(/(?<=,)(.*nd)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"North Dakota")
+        } else if (inputCity.search(/(?<=,)(.*oh)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Ohio")
+        } else if (inputCity.search(/(?<=,)(.*ok)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Oklahoma")
+        } else if (inputCity.search(/(?<=,)(.*or)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Oregon")
+        } else if (inputCity.search(/(?<=,)(.*pa)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Pennsylvania")
+        } else if (inputCity.search(/(?<=,)(.*ri)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Rhode Island")
+        } else if (inputCity.search(/(?<=,)(.*sc)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"South Carolina")
+        } else if (inputCity.search(/(?<=,)(.*sd)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"South Dakota")
+        } else if (inputCity.search(/(?<=,)(.*tn)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Tennessee")
+        } else if (inputCity.search(/(?<=,)(.*tx)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Texas")
+        } else if (inputCity.search(/(?<=,)(.*ut)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Utah")
+        } else if (inputCity.search(/(?<=,)(.*vt)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Vermont")
+        } else if (inputCity.search(/(?<=,)(.*va)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Virginia")
+        } else if (inputCity.search(/(?<=,)(.*wa)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Washington")
+        } else if (inputCity.search(/(?<=,)(.*wv)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"West Virginia")
+        } else if (inputCity.search(/(?<=,)(.*wi)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Wisconsin")
+        } else if (inputCity.search(/(?<=,)(.*wy)/i) !== -1) {
+            inputCity = inputCity.replace(/[^,]*$/,"Wyoming")
+        }; 
 
         function saveSearch() {
             var div = $("<div>")
