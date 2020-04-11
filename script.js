@@ -289,10 +289,8 @@ $(document).ready(function () {
     })
 
     $("form").on("submit", function(event) {
-        if (event.preventDefault) { 
-            event.preventDefault(); 
-        } else { event.returnValue = false; }
-        
+        event.preventDefault ? event.preventDefault() : event.returnValue = false;
+
         event.stopImmediatePropagation();
         
         var inputCity = $("#searchCity").val();
