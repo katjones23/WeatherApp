@@ -288,8 +288,9 @@ $(document).ready(function () {
         $(searchHistory).empty();
     })
 
-    $("#searchBtn").on("click", function apiCall(event) {
-        event.stopPropagation();
+    $("form").on("submit", function(event) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
         var inputCity = $("#searchCity").val();
 
         function saveSearch() {
