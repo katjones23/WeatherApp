@@ -18,7 +18,7 @@ $(document).ready(function () {
     init();
 
     function init() {
-        var storedSearches = JSON.parse(localStorage.getItem("prevSearches"));
+        var storedSearches = JSON.parse(localStorage.getItem("prevSearchesStore"));
 
         if (storedSearches !== null) {
             prevSearches = storedSearches;
@@ -29,12 +29,76 @@ $(document).ready(function () {
 
     function renderSearchHistory() {
         $(searchHistory).empty();
+        $(".cityWeather").empty();
+        
+        var inputCity = prevSearches[prevSearches.length - 1];
+
+        var APIKey = "&appid=fc3e557a89901d475f37aaf29507552a";
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + inputCity + "&units=imperial" + APIKey;
+        var currentDate = moment().format('dddd MMM Do YYYY')
+
+        // Current weather
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        })
+            .then(function (response) {
+                $(".weatherCard").css("display", "block");
+
+                var iconURl = "http://openweathermap.org/img/wn/" + response.weather[0].icon + ".png";
+
+                $(".cityWeather").html("<h3>" + response.name + ", " + currentDate + "<img src='" + iconURl + "'>" + "</h3>");
+
+                var temperature = response.main.temp;
+                var humidity = response.main.humidity;
+                var windSpeed = response.wind.speed;
+
+                $(".cityWeather").append("<p>Temperature: " + temperature + " °F</p>");
+                $(".cityWeather").append("<p>Humidity: " + humidity + "%</p>");
+                $(".cityWeather").append("<p>Wind Speed: " + windSpeed + " MPH</p>");
+
+                var UVqueryURL = "http://api.openweathermap.org/data/2.5/uvi?" + APIKey + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon
+
+                $.ajax({
+                    url: UVqueryURL,
+                    method: "GET"
+                })
+                    .then(function (response) {
+                        var UVIndex = response.value;
+                        var UVIndexHTML = $("<p>").html("UV Index: ")
+                        var UVBadge = $("<span>").addClass("badge").text(UVIndex)
+
+                        if (UVIndex < 3) {
+                            $(UVBadge).css({ "background-color": "green", "color": "white" })
+                        } else if (UVIndex < 6 && UVIndex >= 3) {
+                            $(UVBadge).css({ "background-color": "yellow", "color": "white" })
+                        } else if (UVIndex < 8 && UVIndex >= 6) {
+                            $(UVBadge).css({ "background-color": "orange", "color": "white" })
+                        } else if (UVIndex < 11 && UVIndex >= 8) {
+                            $(UVBadge).css({ "background-color": "red", "color": "white" })
+                        } else if (UVIndex >= 11) {
+                            $(UVBadge).css({ "background-color": "violet", "color": "white" })
+                        }
+
+                        $(".cityWeather").append(UVIndexHTML);
+                        $(UVIndexHTML).append(UVBadge);
+                    })
+                    .catch(function (error) {
+                        $(UVIndexHTML).text("UV Index data unavailable at this time.")
+                    });
+
+
+            })
+            .catch(function (error) {
+                $(".weatherCard").css("display", "block");
+                $(".weatherCard").text("Weather data unavailable at this time.");
+            });
 
         for (var i = 0; i < prevSearches.length; i++) {
             var searchedCity = prevSearches[i];
 
             var div = $("<div>");
-            
+
             $(searchHistory).css("display", "block")
             $(div).text(searchedCity);
             $(div).addClass("card");
@@ -47,13 +111,21 @@ $(document).ready(function () {
         $(searchHistory).empty();
     })
 
-    $("#searchBtn").on("click", function () {
+    $("#searchBtn").on("click", function apiCall() {
 
         var inputCity = $("#searchCity").val();
 
         function saveSearch() {
+            var div = $("<div>")
+
+            $(searchHistory).css("display", "block")
+            $(div).text(inputCity);
+            $(div).addClass("card");
+            $(searchHistory).prepend(div);
+
             prevSearches.push(inputCity);
-            localStorage.setItem("prevSearches", JSON.stringify(prevSearches));
+            localStorage.setItem("prevSearchesStore", JSON.stringify(prevSearches));
+
         };
 
         saveSearch();
