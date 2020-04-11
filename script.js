@@ -22,15 +22,16 @@ $(document).ready(function () {
 
         if (storedSearches !== null) {
             prevSearches = storedSearches;
-        }
-
-        renderSearchHistory();
-    }
+            renderSearchHistory();
+        } else {
+            return;
+        };
+    };
 
     function renderSearchHistory() {
         $(searchHistory).empty();
         $(".cityWeather").empty();
-        
+
         var inputCity = prevSearches[prevSearches.length - 1];
 
         var APIKey = "&appid=fc3e557a89901d475f37aaf29507552a";
@@ -201,6 +202,114 @@ $(document).ready(function () {
             .then(function (response) {
                 console.log("Five day")
                 console.log(response);
+
+                // Store response in an array
+                var fiveDayArr = response.list
+                var dayOne = [];
+                var dayTwo = [];
+                var dayThree = [];
+                var dayFour = [];
+                var dayFive = [];
+
+                var firstDate = moment(fiveDayArr[0].dt_txt).format();
+                var secondDate = moment(firstDate).add(1, 'days').format();
+                var thirdDate = moment(firstDate).add(2, 'days').format();
+                var fourthDate = moment(firstDate).add(3, 'days').format();
+                var fifthDate = moment(firstDate).add(4, 'days').format();
+
+                // split up the array in the five different dates
+                for (var i = 0; i < fiveDayArr.length; i++) {
+                    var itemDate = moment(fiveDayArr[i].dt_txt).format();
+
+                    if (itemDate < secondDate) {
+                        dayOne.push(fiveDayArr[i]);
+                    } else if (itemDate < thirdDate) {
+                        dayTwo.push(fiveDayArr[i]);
+                    } else if (itemDate < fourthDate) {
+                        dayThree.push(fiveDayArr[i]);
+                    } else if (itemDate < fifthDate) {
+                        dayFour.push(fiveDayArr[i]);
+                    } else {
+                        dayFive.push(fiveDayArr[i]);
+                    };
+                };
+
+                // For each day, find the highest temp
+                function findHighTemp(arr) {
+                    var highTemp = 0;
+
+                    for (var i = 0; i < arr.length; i++) {
+                        if (arr[i].main.temp > highTemp) {
+                            highTemp = arr[i].main.temp
+                        };
+                    };
+
+                    return highTemp;
+                };
+
+                var dayOneTemp = findHighTemp(dayOne);
+                var dayTwoTemp = findHighTemp(dayTwo);
+                var dayThreeTemp = findHighTemp(dayThree);
+                var dayFourTemp = findHighTemp(dayFour);
+                var dayFiveTemp = findHighTemp(dayFive);
+
+                // For each day, find highest humidity
+                function findHumidity(arr) {
+                    var maxHumidity = 0;
+
+                    for (var i = 0; i < arr.length; i++) {
+                        if (arr[i].main.humidity > maxHumidity) {
+                            maxHumidity = arr[i].main.humidity
+                        };
+                    };
+
+                    return maxHumidity;
+                };
+
+                var dayOneHum = findHumidity(dayOne);
+                var dayTwoHum = findHumidity(dayTwo);
+                var dayThreeHum = findHumidity(dayThree);
+                var dayFourHum = findHumidity(dayFour);
+                var dayFiveHum = findHumidity(dayFive);
+
+                // get formatted date
+                function getDate(arr) {
+                    var date = moment(arr[0].dt_txt).format("l");
+                    return date;
+                }
+
+                var dayOneDate = getDate(dayOne);
+                var dayTwoDate = getDate(dayTwo);
+                var dayThreeDate = getDate(dayThree);
+                var dayFourDate = getDate(dayFour);
+                var dayFiveDate = getDate(dayFive);
+
+                console.log(dayOne)
+
+                // find icon
+
+                // var iconArray = [];
+
+                // for (var i = 0; i < dayOne.length; i++) {
+                //     iconArray.push(dayOne[i].weather[0].icon);
+                // }
+
+                // console.log(iconArray)
+
+                // // https://stackoverflow.com/questions/5667888/counting-the-occurrences-frequency-of-array-elements
+                // var counts = {};
+
+                // for (var i = 0; i < iconArray.length; i++) {
+                //     var icon = iconArray[i];
+                //     counts[icon] = counts[icon] ? counts[icon] + 1 : 1;
+                // }
+
+                // for (var i = 0; i < iconArray.length; i++) {
+                //     console.log(counts[iconArray[i]]);
+                // }
+                
+                
+
             })
             .catch(function (error) {
                 alert("Forecast error")

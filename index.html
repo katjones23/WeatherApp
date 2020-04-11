@@ -17,36 +17,86 @@
 
 <body>
 
-    <nav class="navbar navbar-dark bg-dark justify-content-center">
+    <nav class="headerBar navbar navbar-dark bg-dark justify-content-center">
         <h1>Weather App</h1>
     </nav>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="row">
-                    <nav id="sidebar">
-                        <label for="searchCity">Search for a City:</label>
-                        <br>
-                        <input type="text" id="searchCity" placeholder="Search">
-                        <button id="searchBtn" class="myBtn"><i class="fas fa-search"></i></button>
-                        <br>
-                        <div class="searchHistory"></div>
-                        <div class="float-right">
-                            <button id="clear" class="btn btn-primary myBtn">Clear</button>
-                        </div>
-                    </nav>
-                </div>
 
+    <div class="row">
+        <nav id="sidebar" class="float-left">
+            <label for="searchCity">Search for a City:</label>
+            <br>
+            <input type="text" id="searchCity" placeholder="Search">
+            <button id="searchBtn" class="myBtn"><i class="fas fa-search"></i></button>
+            <br>
+            <div class="searchHistory"></div>
+            <div class="float-right">
+                <button id="clear" class="btn btn-primary myBtn">Clear</button>
             </div>
-            <div class="col-md-9">
-                <div class="card weatherCard">
+        </nav>
+
+        <div class="container">
+            <div class="col-md">
+                <div class="card weatherCard" style="max-width: 1000px">
                     <div class="card-body">
                         <div class="cityWeather"></div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="fiveDay"></div>
+
+                <div class="card fiveDay">
+                    <h3>Five-Day Forecast</h3>
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="card text-white bg-primary mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Date</h5>
+                                    <img src="">
+                                    <p class="card-text">Temperature</p>
+                                    <p class="card-text">Humidity</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="card text-white bg-primary mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Date</h5>
+                                    <img src="">
+                                    <p class="card-text">Temperature</p>
+                                    <p class="card-text">Humidity</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="card text-white bg-primary mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Date</h5>
+                                    <img src="">
+                                    <p class="card-text">Temperature</p>
+                                    <p class="card-text">Humidity</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="card text-white bg-primary mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Date</h5>
+                                    <img src="">
+                                    <p class="card-text">Temperature</p>
+                                    <p class="card-text">Humidity</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="card text-white bg-primary mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Date</h5>
+                                    <img src="">
+                                    <p class="card-text">Temperature</p>
+                                    <p class="card-text">Humidity</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

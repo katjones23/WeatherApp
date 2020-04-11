@@ -2,13 +2,16 @@ h1 {
     color: white;
 }
 
+.headerBar {
+    width: 100%;
+}
+
 #sidebar {
-    position: fixed;
-    left: 0;
-    width: 25%;
-    height: 500px;
+    margin-left: 10px;
+    margin-right: 10px;
     background-color: #F7F6F6;
-    padding: 10px;
+    padding: 20px;
+    flex: auto;
 }
 
 label {
@@ -31,7 +34,12 @@ label {
     display: none;
 }
 
+.fiveDay {
+    border: none;
+}
+
 .card {
     box-sizing: content-box;
     padding: 5px;
+    display: none;
 }
