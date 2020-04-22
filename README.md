@@ -1,5 +1,7 @@
 # Web-based Weather App
 
+[Deployed link](https://katjones23.github.io/WeatherApp/)
+
 A dynamic weather app that allows users to search cities, see search history, quickly redo previous searches, and see current weather and a five-day forecast.
 
 ## Credits
